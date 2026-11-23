@@ -154,6 +154,8 @@ Google Search was used to brainstorm and explore ideas for the project.
 
 AI tools served as supporting resources during development. Technical decisions, project direction, and the evaluation of changes remained part of the development process. AI-generated suggestions were not treated as automatically correct and required review in the context of the existing codebase.
 
+## Screenshots (coming soon)
+
 ## 👩‍💻 Author
 
 **Eva J Patel**
