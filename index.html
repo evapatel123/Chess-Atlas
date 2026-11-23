@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Eva J Patel" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="./app/styles.css" />
+
+  </head>
+  <body>
+    <div id="root">
+      <div class="veil is-up">
+        <div class="veil-card">
+          <p id="startup-status" class="veil-label" role="status">
+            Setting up the board…
+          </p>
+          <div class="veil-track is-waiting">
+            <span class="veil-fill"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const showStartupFailure = (detail) => {
+        const status = document.getElementById("startup-status");
+        if (status)
+          status.textContent = "The board could not be set up: " + detail;
+      };
+      window.addEventListener(
+        "error",
+        (event) =>
+          showStartupFailure(
+            event.message || event.target?.src || "a script failed to load"
+          ),
+        true
+      );
+      window.addEventListener("unhandledrejection", (event) =>
+        showStartupFailure(String(event.reason))
+      );
+    </script>
+    <script type="module" src="./app/main.tsx"></script>
+    <link
+      rel="stylesheet"
+      href="https://assets.commonletter.com/codepen.css"
+      media="print"
+      referrerpolicy="no-referrer-when-downgrade"
+    />
+  </body>
+</html>

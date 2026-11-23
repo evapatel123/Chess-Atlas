@@ -1,0 +1,146 @@
+[
+  {
+    "id": "pip",
+    "name": "Milo Finch",
+    "title": "Club junior",
+    "rating": 500,
+    "world": "club-room",
+    "figure": "pawn",
+    "style": "Snatches up anything left unguarded.",
+    "greeting": "Am I up? Oh, you're playing. My mistake.",
+    "onWin": "I actually won? The whole club needs to hear this!",
+    "onLoss": "Nice game. Remind me which piece moves like a horse?",
+    "play": {
+      "kind": "human",
+      "depth": 3,
+      "lines": 8,
+      "temper": 190,
+      "blunder": 0.22,
+      "aggression": 60
+    }
+  },
+  {
+    "id": "wren",
+    "name": "Hana Mori",
+    "title": "Weekend regular",
+    "rating": 800,
+    "world": "ink-garden",
+    "figure": "pawn",
+    "style": "Calm and methodical, but overlooks distant threats.",
+    "greeting": "Ready when you are. I made some tea.",
+    "onWin": "That was lovely. Shame the tea's gone lukewarm.",
+    "onLoss": "Right, I see it now. Everything in its place.",
+    "play": {
+      "kind": "human",
+      "depth": 5,
+      "lines": 6,
+      "temper": 110,
+      "blunder": 0.12,
+      "aggression": -20
+    }
+  },
+  {
+    "id": "soren",
+    "name": "Elias Frost",
+    "title": "Class C",
+    "rating": 1100,
+    "world": "glacier",
+    "figure": "knight",
+    "style": "Takes his time, seals the position, and waits for a mistake.",
+    "greeting": "There's no rush. Winter is a long season.",
+    "onWin": "You were the first to give in. Most are.",
+    "onLoss": "The ice finally broke. Well played.",
+    "play": {
+      "kind": "human",
+      "depth": 8,
+      "lines": 5,
+      "temper": 60,
+      "blunder": 0.05,
+      "aggression": -40
+    }
+  },
+  {
+    "id": "marisol",
+    "name": "Lucia Vega",
+    "title": "Class B",
+    "rating": 1400,
+    "world": "courtyard",
+    "figure": "bishop",
+    "style": "Makes the sacrifice first, then works out the details.",
+    "greeting": "Stay out of the glare. Someone always has the sun in their eyes.",
+    "onWin": "Take a seat in the shade and cool off before you return.",
+    "onLoss": "Well! This old bronze still has some bite.",
+    "play": {
+      "kind": "elo",
+      "elo": 1400,
+      "movetime": 500
+    }
+  },
+  {
+    "id": "dex",
+    "name": "Jett Okoye",
+    "title": "Class A",
+    "rating": 1750,
+    "world": "arcade",
+    "figure": "rook",
+    "style": "Quick fingers, surprising openings, and relentless clock pressure.",
+    "greeting": "Drop a coin. Show me what you've got.",
+    "onWin": "That's the end. The top score is still mine.",
+    "onLoss": "All right, all right! Add your initials to the board.",
+    "play": {
+      "kind": "elo",
+      "elo": 1750,
+      "movetime": 600
+    }
+  },
+  {
+    "id": "amara",
+    "name": "Nia Lind",
+    "title": "Expert",
+    "rating": 2050,
+    "world": "jade-temple",
+    "figure": "knight",
+    "style": "Builds strong outposts, targets weak squares, and squeezes slowly.",
+    "greeting": "Every square remembers who left it undefended.",
+    "onWin": "You left me a single square. That was all I needed.",
+    "onLoss": "You protected every square. You have my respect.",
+    "play": {
+      "kind": "elo",
+      "elo": 2050,
+      "movetime": 800
+    }
+  },
+  {
+    "id": "halloran",
+    "name": "Dr. Mira Solberg",
+    "title": "International Master",
+    "rating": 2400,
+    "world": "observatory",
+    "figure": "queen",
+    "style": "Already knows how this endgame is likely to unfold.",
+    "greeting": "Let's discover where the calculation takes us.",
+    "onWin": "The answer was already in the analysis by move thirty.",
+    "onLoss": "Impressive. I hadn't included that variation in my notes.",
+    "play": {
+      "kind": "elo",
+      "elo": 2400,
+      "movetime": 1100
+    }
+  },
+  {
+    "id": "aurelio",
+    "name": "Rafael Conti",
+    "title": "Grandmaster",
+    "rating": 2800,
+    "world": "grand-hall",
+    "figure": "king",
+    "style": "Controls the eighth rank; no one has managed to get beyond him.",
+    "greeting": "You've travelled quite a distance just to reach a pawn.",
+    "onWin": "Back to the bottom. You can make the climb again.",
+    "onLoss": "The eighth rank belongs to you now. Time to promote.",
+    "play": {
+      "kind": "full",
+      "movetime": 1500
+    }
+  }
+]

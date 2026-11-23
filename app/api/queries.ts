@@ -1,0 +1,57 @@
+import { z } from "zod";
+import * as THREE from "three/webgpu";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { config } from "../config.js";
+import type { Role } from "../chess/game.js";
+import { cachedBlob } from "../lib/utils.js";
+import {
+  lessonSchema,
+  opponentSchema,
+  parseOrThrow,
+  worldSchema
+} from "../schemas.js";
+
+const loadJson = async <T>(url: string, schema: z.ZodType<T>): Promise<T> => {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+  return parseOrThrow(schema, await response.json(), url);
+};
+
+export const worldsQuery = {
+  queryKey: ["worlds"],
+  queryFn: () => loadJson(config.data.worlds, z.array(worldSchema))
+};
+export const opponentsQuery = {
+  queryKey: ["opponents"],
+  queryFn: () => loadJson(config.data.opponents, z.array(opponentSchema))
+};
+export const lessonsQuery = {
+  queryKey: ["lessons"],
+  queryFn: () => loadJson(config.data.lessons, z.array(lessonSchema))
+};
+
+export type SetGeometry = Record<string, THREE.BufferGeometry>;
+
+const loadPieces = async (): Promise<SetGeometry> => {
+  const blob = await cachedBlob(
+    new URL(config.data.pieces, location.href).href
+  );
+  const gltf = await new GLTFLoader().parseAsync(await blob.arrayBuffer(), "");
+  const roles: Role[] = ["pawn", "knight", "bishop", "rook", "queen", "king"];
+  const names = [
+    "board",
+    ...roles.flatMap((role) => [`white_${role}`, `black_${role}`])
+  ];
+  return Object.fromEntries(
+    names.map((name) => {
+      const mesh = gltf.scene.getObjectByName(name) as THREE.Mesh | undefined;
+      if (!mesh)
+        throw new Error(
+          `${config.data.pieces} [${name}] mesh: expected a mesh, got nothing`
+        );
+      return [name, mesh.geometry];
+    })
+  );
+};
+
+export const piecesQuery = { queryKey: ["pieces"], queryFn: loadPieces };
