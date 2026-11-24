@@ -163,8 +163,5 @@ Kept in the screenshot folder
 **Eva J Patel**
 
 - GitHub: [@evapatel123](https://github.com/evapatel123)
-- Portfolio: [Personal Portfolio](https://github.com/evapatel123)
 
 ---
-
-*Chess Atlas — Every move opens a new possibility.*
